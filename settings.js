@@ -4,12 +4,14 @@ function generate_input_field() {
     var inputValues = []; // tambahkan array untuk menyimpan inputan
     document.getElementById("button_generate_text").disabled = true;
     document.getElementById("generate_text").disabled = true;
+    document.getElementById("nama_field").disabled = true;
     for (var i = 0; i < much_field; i++) {
       var br = document.createElement("br");
       var textLabel = document.createElement("label");
       var textField = document.createElement("input");
       textField.type = "text";
       textField.value = "";
+      textField.id = "textField"+(i+1);
       textLabel.innerHTML = "Pilihan " + (i + 1) + " : ";
       document.getElementById("form").appendChild(br);
       document.getElementById("form").appendChild(textLabel);
@@ -34,6 +36,7 @@ function generate_input_field() {
   
     for (var i = 0; i < much_field; i++) {
       var option = document.createElement("option");
+      document.getElementById("textField"+(i+1)).disabled = true;
       option.value = i+1;
       option.text = inputValues[i].previousSibling.textContent +" "+inputValues[i].value;
       selectField.appendChild(option);
